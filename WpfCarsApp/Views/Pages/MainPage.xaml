@@ -16,7 +16,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text="Поиск: *"></TextBlock>
                 <TextBox Name="Search" Width="250" TextChanged="Search_TextChanged"></TextBox>
             </StackPanel>
