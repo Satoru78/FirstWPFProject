@@ -17,12 +17,12 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Text="Поиск: *"></TextBlock>
+                <TextBlock Text="Поиск: "></TextBlock>
                 <TextBox Name="Search" Width="250" TextChanged="Search_TextChanged"></TextBox>
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" Background="#BC8F8F">
             <DataGrid Name="DataView" AutoGenerateColumns="False" ColumnWidth="*">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
@@ -35,7 +35,12 @@
         
         </Grid>
         <Grid Grid.Row="2">
-
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                <Button Content="Add" Background="#FFDEAD" Margin="10,0" Name="AddButton" Width="250" Click="AddButton_Click"></Button>
+                <Button Content="Edit" Background="#FFDEAD" Name="EditButton" Width="250" Margin="10,0" Click="EditButton_Click"></Button>
+                <Button Content="Delete" Background="#FFDEAD" Name="DeleteButton" Width="250" Margin="10,0" Click="DeleteButton_Click"></Button>
+            </StackPanel>
+            
         </Grid>
     </Grid>
 </Page>

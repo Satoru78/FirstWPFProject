@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfCarsApp.Context;
+using WpfCarsApp.Model;
 
 namespace WpfCarsApp.Views.Pages
 {
@@ -35,6 +36,32 @@ namespace WpfCarsApp.Views.Pages
         {
             DataView.ItemsSource = DateApp.ce.Cars.Where(item => item.Brand.Contains(Search.Text) || item.YearIssue.Contains(Search.Text) ||
             item.Mileage.ToString().Contains(Search.Text) || item.Price.ToString().Contains(Search.Text)).ToList();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ActionPage(new Model.Cars()));
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = (Cars)DataView.SelectedItem;
+            if (selectedItem != null)
+            {
+                NavigationService.Navigate( new ActionPage(selectedItem));
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = (Cars)DataView.SelectedItem;
+            if (selectedItem != null)
+            {
+                DateApp.ce.Cars.Remove(selectedItem);
+                DateApp.ce.SaveChanges();
+                Page_Loaded(null, null);
+                MessageBox.Show("Data deleted", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

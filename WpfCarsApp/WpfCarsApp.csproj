@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\Pages\ActionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -94,6 +98,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CarsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ActionPage.xaml.cs">
+      <DependentUpon>ActionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
