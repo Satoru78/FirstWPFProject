@@ -16,13 +16,16 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                 <TextBlock Text="Поиск: "></TextBlock>
                 <TextBox Name="Search" Width="250" TextChanged="Search_TextChanged"></TextBox>
             </StackPanel>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="18">
+                <Button Content="Switch" Width="130" Name="SwitchBtn" Click="SwitchBtn_Click"></Button>
+            </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Background="#BC8F8F">
+        <Grid Grid.Row="1" Name="TableGrid" Visibility="Collapsed" Background="#BC8F8F">
             <DataGrid Name="DataView" AutoGenerateColumns="False" ColumnWidth="*">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
@@ -30,9 +33,36 @@
                     <DataGridTextColumn Header="YearIssue" Binding="{Binding YearIssue}"/>
                     <DataGridTextColumn Header="Mileage" Binding="{Binding Mileage}"/>
                     <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                    <DataGridTemplateColumn Header="Photo">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding GetPhoto}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-        
+        </Grid>
+        <Grid Name="ListView" Grid.Row="1">
+            <ListView Name="ListDataView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="1" Width="150" Height="150" Source="{Binding GetPhoto}"></Image>
+                            <StackPanel Grid.Column="1">
+                                <Label Content="{Binding ID}" ContentStringFormat="ID: {0}"></Label>
+                                <Label Content="{Binding Brand}" ContentStringFormat="Brand: {0}"></Label>
+                                <Label Content="{Binding YearIssue}" ContentStringFormat="YearIssue: {0}"></Label>
+                                <Label Content="{Binding Mileage}" ContentStringFormat="Mileage: {0}"></Label>
+                                <Label Content="{Binding Price}" ContentStringFormat="Price: {0}"></Label>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
         <Grid Grid.Row="2">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">

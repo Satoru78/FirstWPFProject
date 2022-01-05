@@ -81,24 +81,25 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Context\DateApp.cs" />
-    <Compile Include="Model\Cars.cs">
+    <Compile Include="Models\Cars.cs">
       <DependentUpon>CarsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarsModel.Context.cs">
+    <Compile Include="Models\CarsModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CarsModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarsModel.cs">
+    <Compile Include="Models\CarsModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CarsModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\CarsModel.Designer.cs">
+    <Compile Include="Models\CarsModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CarsModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\PartialCars.cs" />
     <Compile Include="Views\Pages\ActionPage.xaml.cs">
       <DependentUpon>ActionPage.xaml</DependentUpon>
     </Compile>
@@ -128,11 +129,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\CarsModel.edmx">
+    <EntityDeploy Include="Models\CarsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CarsModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\CarsModel.edmx.diagram">
+    <None Include="Models\CarsModel.edmx.diagram">
       <DependentUpon>CarsModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -146,12 +147,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Model\CarsModel.Context.tt">
+    <Content Include="Models\CarsModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CarsModel.Context.cs</LastGenOutput>
       <DependentUpon>CarsModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Model\CarsModel.tt">
+    <Content Include="Models\CarsModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CarsModel.edmx</DependentUpon>
       <LastGenOutput>CarsModel.cs</LastGenOutput>

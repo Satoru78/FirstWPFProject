@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfCarsApp.Context;
-using WpfCarsApp.Model;
+using WpfCarsApp.Models;
 
 namespace WpfCarsApp.Views.Pages
 {
@@ -22,6 +22,7 @@ namespace WpfCarsApp.Views.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+        public List<Cars> Cars { get; set; }
         public MainPage()
         {
             InitializeComponent();
@@ -29,7 +30,9 @@ namespace WpfCarsApp.Views.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            DataView.ItemsSource = DateApp.ce.Cars.ToList(); 
+            Cars = DateApp.ce.Cars.ToList();
+            DataView.ItemsSource = Cars;
+            ListDataView.ItemsSource = Cars;
         }
 
         private void Search_TextChanged(object sender, TextChangedEventArgs e)
@@ -40,7 +43,7 @@ namespace WpfCarsApp.Views.Pages
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ActionPage(new Model.Cars()));
+            NavigationService.Navigate(new ActionPage(new Models.Cars()));
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -62,6 +65,11 @@ namespace WpfCarsApp.Views.Pages
                 Page_Loaded(null, null);
                 MessageBox.Show("Data deleted", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void SwitchBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfCarsApp.Model
+namespace WpfCarsApp.Models
 {
     using System;
     using System.Collections.Generic;
@@ -19,5 +19,6 @@ namespace WpfCarsApp.Model
         public string YearIssue { get; set; }
         public int Mileage { get; set; }
         public decimal Price { get; set; }
+        public string Photos { get; set; }
     }
 }

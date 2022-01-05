@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfCarsApp.Model
+namespace WpfCarsApp.Models
 {
     using System;
     using System.Data.Entity;
